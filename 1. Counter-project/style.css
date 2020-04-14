@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+body{
+    background-image: url(blackBackground.jpg);
+}
+.counter{
+    width: 40%;
+    min-width: 200px;
+    margin: 50% auto;
+    transform: translateY(-50%);
+    border: 1px solid #f5f5f5;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+    1px 10px 3px rgb(0, 0, 0);
+}
+.heading{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-family: cursive;
+    font-size: 35px;
+}
+.count{
+    font-size: 100px;
+    font-family: fantasy;
+}
+button{
+    display: block;
+    margin:10px auto;
+    padding: 10px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.subtract{
+    background-color: tomato;
+    box-shadow: 0 0 5px 3px coral;
+}
+.add{
+    background-color: green;
+    box-shadow: 0 0 5px 3px green;
+}
+.subtract:hover, .add:hover{
+    background-color: rgb(73, 73, 150);
+    color: white;
+    box-shadow: none;
+}

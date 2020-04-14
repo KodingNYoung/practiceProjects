@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    background-color: cadetblue;
+}
+.calculator{
+    width: 50%;
+    max-width: 350px;
+    margin: 50% auto;
+    transform: translateY(-50%);
+    border: 2px solid rgb(161, 160, 160);
+    padding: 20px;
+    box-shadow: 3px 3px 7px 1px;
+}
+input[type=text]{
+    width: 88.9%;
+    padding: 10px 5%;
+    font-size: 25px;
+    border: 2px solid white;
+}
+.buttons{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,20%);
+}
+.copy{
+    grid-column:4/6;
+    text-transform: uppercase;
+}
+.buttons button{
+    border: 2px solid white;
+    padding: 14px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.buttons button:active{
+    background-color: rgb(59, 109, 110);
+}
