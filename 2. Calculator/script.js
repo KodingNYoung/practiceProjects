@@ -20,6 +20,18 @@ function getValue(button){
     // console.log(buttonValue)
     return buttonValue
 }
+// to do all the subtraction operations
+function CheckAndSubtract(expression){
+    var total = 0;
+        if (expression.length>2){
+            for (var i=0; i<expression.length;i++){
+                total -=Number(expression[i]);
+            }
+            }else{
+            total = Number(expression[0]) - Number(expression[1]);
+        }
+        return total
+}
 // function to solve the expression
 function solveTheExpression(expression){
     if (expression.includes("*")){
@@ -29,8 +41,8 @@ function solveTheExpression(expression){
         expression=expression.split("+")
         return Number(expression[0]) + Number(expression[1]);
     }else if (expression.includes("-")){
-        expression=expression.split("-")
-        return Number(expression[0]) - Number(expression[1]);
+        expression=expression.split("-");
+        return CheckAndSubtract(expression)
     }else if (expression.includes("/")){
         expression=expression.split("/")
         return Number(expression[0]) / Number(expression[1]);
@@ -43,7 +55,7 @@ function assignOperation(display, clickedButton, classOfButton){
     if (classOfButton.includes("numbers")){
         display.value += getValue(clickedButton);
     }else if(classOfButton.includes("operators")){
-        if(!(display.value.includes("+")||display.value.includes("-")||display.value.includes("*")||display.value.includes("/"))){
+        if(!(display.value.includes("*")||display.value.includes("/"))){
             display.value += getValue(clickedButton);
         }else{
             alert("You can't use 2 operators at once, press equal to!");
@@ -55,11 +67,21 @@ function assignOperation(display, clickedButton, classOfButton){
     }else if(classOfButton.includes("equal")){
         display.value = solveTheExpression(display.value);
     }else{
-        if(!(display.value.includes("+")||display.value.includes("-")||display.value.includes("*")||display.value.includes("/"))){
+        if(!(display.value.includes("+")||display.value.includes("*")||display.value.includes("/"))){
             display.select();
             display.setSelectionRange(0,9999);
             document.execCommand("copy");
             alert("You have copied the answer!");
+        }else if(display.value.includes("-")){
+            expression=expression.split("-");
+            if (expression[0]===""){
+                display.select();
+                display.setSelectionRange(0,9999);
+                document.execCommand("copy");
+                alert("You have copied the answer!");
+            }else{
+                alert("Press equal to get your answer!");
+            }
         }else{
             alert("Press equal to get your answer!");
         }
