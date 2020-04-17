@@ -1,0 +1,81 @@
+.todo-container{
+    width: 70%;
+    max-width: 700px;
+    min-width: 200px;
+    margin: 10% auto;
+    text-align: center;
+    font-family:sans-serif;
+    text-transform: capitalize;
+}
+.todo-container h1{
+ font-family: cursive;
+}
+.todo-container .input-area{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.input-area input{
+    padding: 10px;
+    color: black;
+    font-size: 14px;
+    border:0;
+    background-color: transparent;
+    text-transform: capitalize;
+}
+button.submit-btn{
+    background-color: transparent;
+    font-size: 16px;
+    border: 0;
+    border-left: 1px solid black;
+}
+.items{
+     margin: 20px 0;
+    text-align: left;
+    list-style: none;
+    font-size: 16px;
+}
+.items li{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+}
+.items p{
+    width: fit-content;
+}
+.icons{
+    display: flex;
+    justify-content: space-around;
+}
+.icons .far{
+    margin: 3px;
+    cursor: pointer;
+}
+.icons .far:active{
+    font-size: 14px;
+}
+.icons .fa-check-circle{
+    color:green;
+}
+.icons .fa-edit{
+    color:blue;
+}
+.icons .fa-trash-alt{
+    color:red;
+}
+
+.clear-btn{
+    text-transform: capitalize;
+    background-color: transparent;
+    border: 1px solid black;
+    padding:10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* JS styles */
+.strike_through{
+    text-decoration: line-through;
+}
