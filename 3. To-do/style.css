@@ -1,11 +1,16 @@
 .todo-container{
     width: 70%;
     max-width: 700px;
-    min-width: 330px;
     margin: 10% auto;
     text-align: center;
     font-family:sans-serif;
     text-transform: capitalize;
+}
+@media screen and (max-width: 450px){
+    .todo-container{
+        width: 85%;
+        min-width: 320px;
+    }
 }
 .todo-container h1{
  font-family: cursive;
