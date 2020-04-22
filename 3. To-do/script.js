@@ -210,16 +210,20 @@ function reflectStrikeThroughInLS(text){
 }  
 //put a text in the input box and delete its grandparent
 function edit(e){
-    let text = e.target.parentElement.previousElementSibling.children[0];   
-    input.value = text.textContent;
-    // delete grand parent
-    const grandParent = e.target.parentElement.parentElement;
-    grandParent.remove();
-    input.focus();
-    // remove from LS
-    removeFromLS(e.target.parentElement.parentElement);
-    // remove from striken list
-    removeStrikenList(e.target.parentElement.parentElement);
+    if (input.value === ""){
+        let text = e.target.parentElement.previousElementSibling.children[0];   
+        input.value = text.textContent;
+        // delete grand parent
+        const grandParent = e.target.parentElement.parentElement;
+        grandParent.remove();
+        input.focus();
+        // remove from LS
+        removeFromLS(e.target.parentElement.parentElement);
+        // remove from striken list
+        removeStrikenList(e.target.parentElement.parentElement);
+    }else{
+        alert("Finish the existing entry!");
+    }
 }
 //delete the grandparent
 function deleteGrandParent(e){
