@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(231, 237, 250);
+}
 .todo-container{
     width: 70%;
     max-width: 700px;
@@ -23,12 +26,15 @@
     border-radius: 5px;
 }
 .input-area input{
+    border-radius: 5px 0 0 5px;
     padding: 10px;
     color: black;
     font-size: 14px;
     border:0;
-    background-color: transparent;
     text-transform: capitalize;
+}
+input{
+    background-color: white;
 }
 button.submit-btn{
     background-color: transparent;
@@ -36,15 +42,42 @@ button.submit-btn{
     border: 0;
     border-left: 1px solid black;
 }
+.collection{
+    border-top: 1px solid #ccc;
+    margin: 30px 0;
+    background-color: rgb(240, 242, 247);
+    box-shadow: 2px 0px 10px 2px #ccc;
+}
+.task-heading{
+    text-align: left;
+    font-size: 20px;
+    margin: 10px 10px;
+}
+.filter-list{
+    border:1px solid  rgb(55, 40, 70);
+    border-radius:20px ;
+    float: right;
+    margin: 10px;
+    width: 50%;
+    max-width: 240px;
+    padding: 5px 10px;
+    outline: none;
+}
 .items{
-     margin: 20px 0;
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
     text-align: left;
     list-style: none;
     font-size: 16px;
+    display: grid;
+    border-bottom: 1px solid #ccc;
 }
 .items li{
+    padding: 0 10px;
     display: grid;
     grid-template-columns: 4fr 1fr;
+    border-top: 1px solid #ccc;
     align-items: center;
 }
 .items p{
@@ -78,6 +111,7 @@ button.submit-btn{
     padding:10px 15px;
     font-size: 16px;
     border-radius: 5px;
+    margin: 0 0 10px;
 }
 
 /* JS styles */

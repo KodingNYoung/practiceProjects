@@ -4,32 +4,115 @@
     -when the check icon is clicked the strike through style is added to the text
     -when the edit icon is clicked the li element gets edited
     -when the delete icon is the whole list item is deleted
--the clear items btn deletes all li elements*/
+-the clear items btn deletes all li elements
 
+also as you enter your input, log it to the local storage
+when you strikethrough an item it reflects when you reload the page */
+
+// --------------------------------------------
 //get the required elements
-let input = document.querySelector("input");
+const input = document.querySelector("input");
 const addBtn = document.querySelector(".submit-btn");
 const list = document.querySelector(".items");
-const checkIcons = Array.from(document.querySelectorAll(".fa-check-circle"));
-const editIcons = Array.from(document.querySelectorAll(".fa-edit"));
-const deleteIcons = Array.from(document.querySelectorAll(".fa-trash-alt"))
 const clearBtn = document.querySelector(".clear-btn");
+const filter = document.querySelector(".filter-list");
 
-// functions
-// add multiple class to an item at once
-function addClasses(el,arr){
-    for (let i=0; i<arr.length; i++){
-        el.classList.add(arr[i]);
-    }
+//--------------------------------------------
+//running event listeners
+runEventListeners(); 
+
+// -------------------------------------------
+// function for the event listeners
+function runEventListeners(){
+    // to the document to bring all locally stored items to list
+    document.addEventListener("DOMContentLoaded", getTheTodos);
+    // to the "add item" button for click
+    addBtn.addEventListener("click", createListItem);
+
+    //to the input box for enter key
+    input.addEventListener("keypress",checkKey);
+
+    //to the ul element 
+    list.addEventListener("click", performAction);
+
+    // to the clear btn
+    clearBtn.addEventListener("click", clearListItems);
+
+    // to the filter list
+    filter.addEventListener("keyup", search);
 }
-// append multiple childs
-function appendChildren(el,arr){
-    for (let i=0; i<arr.length; i++){
-        el.appendChild(arr[i]);
+
+// -------------------------------------------
+// functions
+
+// -------------------------------------------
+// to get the todo items from the LS
+function getTheTodos(){
+    // set a list of to-do items
+    let todoItems;
+    // check if the todoItems is already in the LS
+    if (localStorage.getItem("todoItems") === null){
+        // if it is not, make a new array
+        todoItems = [];
+    }else{
+        // if it is, get the array from the LS
+        todoItems = JSON.parse(localStorage.getItem("todoItems"));
     }
+
+    // FOR THE LIST ITEMS THAT ARE STRIKED THROUGH!
+    // initialize a variable
+    let strikens;
+    // check if the strikens is already in the LS
+    if (localStorage.getItem("strikens") === null){
+        // if it is not, make a new array
+        strikens = [];
+    }else{
+        // if it is, get the array from the LS
+        strikens = JSON.parse(localStorage.getItem("strikens"));
+    }
+
+
+    // for each element in the todos array, create a new element!
+    todoItems.forEach(function(todoItem){
+        let listItem= document.createElement("li");
+    
+        const textDiv = document.createElement("div");
+        const text = document.createElement("p");
+        const inputVal= document.createTextNode(todoItem);
+
+        text.appendChild(inputVal);
+        textDiv.appendChild(text);
+    
+
+        const iconDiv = document.createElement("div");
+        iconDiv.classList.add("icons");
+
+        const checkIcon = document.createElement("i");
+        checkIcon.className = "far fa-check-circle";
+    
+        const editIcon = document.createElement("i");
+        editIcon.className = "far fa-edit";
+        
+        const deleteIcon = document.createElement("i");
+        deleteIcon.className="far fa-trash-alt";
+
+        // check if the particular todo item was striked through before
+        if (strikens.includes(todoItem)){
+            text.className = "strike_through";
+        }
+        
+        appendChildren(iconDiv,[checkIcon,editIcon,deleteIcon]);
+
+        appendChildren(listItem,[textDiv,iconDiv]);
+        list.appendChild(listItem);
+    }) 
 }
 // create a list item
 function createListItem(){
+    // check if there's anything to add
+    if (input.value==="") return;
+
+    // else
     let listItem= document.createElement("li");
     
     const textDiv = document.createElement("div");
@@ -44,81 +127,217 @@ function createListItem(){
     iconDiv.classList.add("icons");
 
     const checkIcon = document.createElement("i");
-    addClasses(checkIcon,["far","fa-check-circle"]);
+    checkIcon.className = "far fa-check-circle";
+   
     const editIcon = document.createElement("i");
-    addClasses(editIcon,["far","fa-edit"]);
+    editIcon.className = "far fa-edit";
+    
     const deleteIcon = document.createElement("i");
-    addClasses(deleteIcon,["far","fa-trash-alt"]);
+    deleteIcon.className="far fa-trash-alt";
+
     
     appendChildren(iconDiv,[checkIcon,editIcon,deleteIcon]);
 
     appendChildren(listItem,[textDiv,iconDiv]);
 
-    checkIcons.push(checkIcon);
-    editIcons.push(editIcon);
-    deleteIcons.push(deleteIcon);
+    // storage to LS
+    storageToLocalStorage(input.value);
+
     list.appendChild(listItem);
     input.value = "";
-
-    // run the activate icons function everytime a new element is added
-    activateIcons();
 }
-// when the check item is clicked set a strike through property
-function strikeThrough(e){
-    let text = e.target.parentElement.previousElementSibling.children[0];
-    text.classList.toggle("strike_through");
+// append multiple childs
+function appendChildren(el,arr){
+    arr.forEach(function(item){
+        el.appendChild(item)
+    })
 }
-//when the edit icon is clicked, delete the grand parent element of that edit icon and put the text in the p tag into the input box #editting
-function edit(e){
-    let text = e.target.parentElement.previousElementSibling.children[0];
-    const grandParent = e.target.parentElement.parentElement;
-    input.value = text.innerText;
-    grandParent.remove();
-    input.focus();
-}
-//when the delete icon is clicked, delete grand parent element of the delete icon
-function deleteGrandParent(e){
-    const grandParent = e.target.parentElement.parentElement;
-    grandParent.remove();
-    input.focus();
-}
-
-// when you click on the clear items btn, delete all li elements under the ul element.
-function clearListItems(e){
-    let elements = Array.from(e.target.previousElementSibling.children);
-    elements.forEach(function(li){
-        li.remove();
-    })   
-}
-//functionfor the enter key
+//function for the enter key
 function checkKey(key){
-    if (input.value!=="" && key.keyCode===13){
+    if (key.keyCode===13){
         createListItem();
     }
 }
-// event listeners
+// check which icon was clicked and act
+function performAction(e){
+    // if it is a check icon
+    if (e.target.classList.contains("fa-check-circle")){
+        strikeThrough(e);
+    }
+    // if it is an edit icon
+    else if (e.target.classList.contains("fa-edit")){
+        edit(e);
+    }
+    // if it is a delete icon
+    else if (e.target.classList.contains("fa-trash-alt")){
+        deleteGrandParent(e);
+    }
+}
+//strike through an element
+function strikeThrough(e){
+    let text = e.target.parentElement.previousElementSibling.children[0];
+    text.classList.toggle("strike_through");
 
-// to the "add item" button for click
-addBtn.addEventListener("click",function(){
-    if (input.value==="") return;
-    createListItem();
-});
-//to the input box for enter key
-input.addEventListener("keypress",checkKey)
+    // reflect in LS
+    reflectStrikeThroughInLS(e.target.parentElement.previousElementSibling.children[0]);
+}
+// to reflect the strike through in local storage
+function reflectStrikeThroughInLS(text){
+    // initialize a variable
+     let strikens;
+    // check if the strikens is already in the LS
+    if (localStorage.getItem("strikens") === null){
+        // if it is not, make a new array
+        strikens = [];
+    }else{
+        // if it is, get the array from the LS
+        strikens = JSON.parse(localStorage.getItem("strikens"));
+    }
+    
+    if (text.classList.contains("strike_through")){
+        // append the name of the striken element to the list
+        strikens.push(text.textContent);
+    }else{
+        strikens.forEach(function(striken, index){
+            if (text.textContent===striken){
+                strikens.splice(index, 1)
+            }
+        })
+    }
 
-//function to add event listeners to the check icon, edit icon and delete icon
-function activateIcons(){
-    // for check icons
-    checkIcons.forEach(function(checkIcon){
-        checkIcon.addEventListener("click",strikeThrough);
-    })  
-    editIcons.forEach(function(editIcon){
-        editIcon.addEventListener("click", edit);
+    localStorage.setItem("strikens", JSON.stringify(strikens));
+    
+}  
+//put a text in the input box and delete its grandparent
+function edit(e){
+    let text = e.target.parentElement.previousElementSibling.children[0];   
+    input.value = text.textContent;
+    // delete grand parent
+    const grandParent = e.target.parentElement.parentElement;
+    grandParent.remove();
+    input.focus();
+    // remove from LS
+    removeFromLS(e.target.parentElement.parentElement);
+    // remove from striken list
+    removeStrikenList(e.target.parentElement.parentElement);
+}
+//delete the grandparent
+function deleteGrandParent(e){
+    if (confirm("Are you sure you want to delete this task?")){
+        const grandParent = e.target.parentElement.parentElement;
+        grandParent.remove();
+        input.focus();
+
+        // remove from LS
+        removeFromLS(e.target.parentElement.parentElement);
+        // remove from striken list
+        removeStrikenList(e.target.parentElement.parentElement);
+    }
+}
+// remove from LS
+function removeFromLS(listItem){
+    // select the text of the deleted item
+    let text = listItem.textContent;
+    // initialize a variable
+    let todoItems;
+    // check if the todoItems is already in the LS
+    if (localStorage.getItem("todoItems") === null){
+        // if it is not, make a new array
+        todoItems = [];
+    }else{
+        // if it is, get the array from the LS
+        todoItems = JSON.parse(localStorage.getItem("todoItems"));
+    }
+
+    todoItems.forEach(function(todoItem, index){
+        if (text===todoItem){
+            todoItems.splice(index, 1)
+        }
     })
-    deleteIcons.forEach(function(deleteIcon){
-        deleteIcon.addEventListener("click", deleteGrandParent);
+
+    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+    // console.log(todoItems);
+    
+}
+// remove from striken list
+function removeStrikenList(listItem){
+    // select the text of the deleted item
+    let text = listItem.textContent;
+    // initialize a variable
+    let strikens;
+    // check if the todoItems is already in the LS
+    if (localStorage.getItem("strikens") === null){
+        // if it is not, make a new array
+        striken = [];
+    }else{
+        // if it is, get the array from the LS
+        strikens = JSON.parse(localStorage.getItem("strikens"));
+    }
+
+    strikens.forEach(function(striken, index){
+        if (text===striken){
+            strikens.splice(index, 1)
+        }
+    })
+
+    localStorage.setItem("strikens", JSON.stringify(strikens));
+    // console.log(strikens);
+    
+}
+
+// clear all the list items
+function clearListItems(){
+    if (confirm("Are you sure you want to clear tasks?")){
+        Array.from(list.children).forEach(function(item){
+            item.remove();
+        })   
+
+        // clear in LS
+        clearinLS();
+    }
+}
+// clear in LS
+function clearinLS(){
+    localStorage.clear();
+}
+// the filter search
+function search(e){
+    let searchInput = e.target.value;
+    // get all the list items
+    let liTexts = list.querySelectorAll("div p")
+    // loop through it and check 
+    liTexts.forEach(function(text){
+        // get the text of the list items
+        textsOfList = text.textContent;
+        // checks if the text contains the search input 
+        let hasFilter = textsOfList.toLowerCase().includes(searchInput.toLowerCase())
+        // if it does
+        if (hasFilter){
+            text.parentElement.parentElement.style.display ="grid";
+        }
+        // if it doesn't
+        else{
+            text.parentElement.parentElement.style.display ="none";
+        }
     })
 }
-// for the clear button
-clearBtn.addEventListener("click", clearListItems)
-activateIcons();
+// store input to LS
+function storageToLocalStorage(inputVal){
+    // set a list of to-do items
+    let todoItems;
+    // check if the todoItems is already in the LS
+    if (localStorage.getItem("todoItems") === null){
+        // if it is not, make a new array
+        todoItems = [];
+    }else{
+        // if it is, get the array from the LS
+        todoItems = JSON.parse(localStorage.getItem("todoItems"));
+    }
+    
+    // append items to the list
+    todoItems.push(inputVal);
+    // stored to local storage
+    localStorage.setItem("todoItems", JSON.stringify(todoItems));
+
+    // console.log(todoItems);
+}
