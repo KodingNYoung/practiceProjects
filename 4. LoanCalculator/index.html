@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loan Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <!-- CALCULATOR INPUT-->
+        <div class="input-area">
+            
+            <!-- HEADER -->
+            <h3 class="heading">
+                loan calculator
+            </h3>
+            <!-- ACTUAL INPUT -->
+            <input type="number" name="Loan-amount" id="loan-amount" placeholder="Amount to loan">
+            <input type="number" name="Interest" id="Interest" placeholder="Interest per years">
+            <input type="number" name="Years" id="Years" placeholder="Years to repay">
+            <input type="button" value="Calculate loan">
+        </div>
+
+        <!-- CALCULATOR OUTPUT -->
+        <div class="output-area">
+            <!-- PRELOADER -->
+            <div class="preloader" id="preloader">
+            <h3 class="heading" id="preloader-heading">
+                Calculating...
+            </h3>
+            
+                <img src="unnamed.gif" alt="">
+            </div>
+            <!-- ACTUAL OUTPUT -->
+            <div class="actual-output">
+                <h3 class="heading" id="resut-heading">
+                    Results
+                </h3>
+                <div class="output monthly-payment">
+                    <span class="output-text">Monthly payment</span><input type="number" name="monthly-payment" id="monthly-payment" disabled>
+                </div>
+                <div class="output Total-payment">
+                    <span class="output-text">Total payment</span><input type="number" name="Total-payment" id="total-payment" disabled>
+                </div>
+                <div class="output Total-interest">
+                    <span class="output-text">Total interest</span><input type="number" name="Total-interest" id="total-interest" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

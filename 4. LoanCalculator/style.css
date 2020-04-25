@@ -1,0 +1,81 @@
+.container{
+    width: 50%;
+    min-width: 300px;
+    border: 1px solid black;
+    text-align: center;
+    margin: 10% auto;
+}
+#message-div{
+    background-color: pink;
+    color: red;
+    width: 85%;
+    margin: 10px auto 0;
+    padding: 10px;
+    box-shadow: 1px 1px 3px 2px pink ;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+   /* display: none; */
+}
+.input-area{
+    display: grid;
+    width: 100%;
+}
+.heading{
+    text-transform: capitalize;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+.input-area input[type=number]{
+    width: 85%;
+    margin: 5px auto;
+    padding: 10px 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.input-area input[type=button]{
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px 0;  
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #0f0f0f;
+    color: #eee;
+    cursor: pointer;
+}
+.input-area input[type=button]:hover{
+    background-color: #afb6ef;
+}
+.output-area{
+    margin: 20px 0;
+}
+.preloader{display:none}
+
+.output-area .heading{
+    font-size: 20px;
+}
+
+.preloader img{
+    width: 100%;
+}
+.actual-output{display: none;}
+.actual-output .output{
+    font-size: 15px;
+    font-family: sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 85%;
+    margin: 5px auto;
+    display: block;
+    background-color: #eee;
+
+}
+.output input{
+    border: 0;
+    width: 99%;
+    padding: 7px 0;
+    background-color: transparent;
+    text-align: center;
+    font-weight: bold;
+}
