@@ -1,0 +1,10 @@
+.game{
+    width: 70%;
+    margin: 10% auto; 
+}
+.game input{
+    border-radius: 5px;
+    border: 1px solid rgb(85, 128, 207);
+    padding: 5px 5px;
+    /* background-color: white; */
+}
