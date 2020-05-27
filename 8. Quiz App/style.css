@@ -90,12 +90,13 @@ body{
 
 /* the quiz page */
 .quiz-container{
-    background-color: white;
     transform: translateX(-100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
+    color: white;
+    font-family: 'Nunito', sans-serif;
 }
 .score-bar{
     width: 90vw;
@@ -123,7 +124,7 @@ body{
     width: 100%;
     border-radius: 30px;
 }
-.score span{
+.score .text{
     font-size: 20px;
     text-transform: uppercase;
     font-weight: normal;
@@ -139,8 +140,14 @@ body{
     width: 90vw;
     height: 35vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
     font-size: 20px;
+}
+.question-text-container .text{
+    align-self: center;
+    margin-bottom: 20px;
 }
 .options{
     width: 90vw;
@@ -165,26 +172,32 @@ body{
     position: fixed;
     width: 0;
 } 
-.option input[type = "radio"]:checked + label{
+.option input[type = "radio"]:checked + .selected{
     background-color: blue;
+}
+.option > input[type ="radio"] + label.red.option-value{
+    background-color: red;
+}
+.option > input[type ="radio"] + label.green.option-value {
+    background-color: green;
 }
 .option label{
     cursor: pointer;
     pointer-events: none;
     user-select: none;
     display: inline-block;
-    padding: 10px;
+    padding: 10px 20px;
     width: 100%;
     border-radius: 30px;
     border: 1px solid black;
 }
-.next-question-btn-container{
+.question-btn-container{
     width: 90vw;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 15px; 
 }
-.next-question-btn{
+.question-btn{
     padding: 10px;
     background-color: transparent;
     border: 2px solid white;
@@ -192,8 +205,9 @@ body{
     color: white;
     outline: none;
     cursor: pointer;
+    margin: 2%;
 }
-.next-question-btn:active{
+.question-btn:active{
     background-color: rgba(216, 191, 216, 0.493);
 }
 .result-page{
@@ -205,9 +219,11 @@ body{
     display: none;
     justify-content: center;
     align-items: center;
+    /* display: flex; */
 }
 .result-modal{
-    background-color: white;
+    font-family: 'Nunito', sans-serif;
+    background-color: #ccc;
     width: 50%;
     max-width: 400px;
     display: flex;
@@ -217,18 +233,43 @@ body{
     border-radius: 5px;
     transform: scale(0);
     transition: transform 0.1s ease;
+    padding: 15px;
 }
-.result-modal span{
-    font-size: 20px;
-    padding: 20px;
-    font-family: 'Nunito', sans-serif;
+.modal-name{
+    align-self: flex-start;
+    font-size: 18px;
+    color: rgba(1, 1, 59, 0.788);
+    font-weight: 600;
 }
-
+.result-modal .img-container{
+    width: 50%;
+    margin: 5px auto;
+}
+.result-modal img{
+    width: 100%;
+}
+.modal-score {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 23px;
+    margin: 2px 0;  
+    color: rgba(1, 1, 59, 0.788);
+    text-shadow: 0px 0px 5px;
+}
+.modal-comment {
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(31, 34, 49);
+    text-align: center;
+}
+.quiz-number{
+    color: rgba(1, 1, 59, 0.788);
+}
 .result-modal button{
     padding: 7px ;
-    border: 1px solid #ccc;
+    border: 2px solid  rgba(1, 1, 59, 0.788);
+    background-color: transparent;
     border-radius: 4px;
     align-self: flex-end;
-    margin: 20px;
+    margin: 20px 10px 0px 10px;
     cursor: pointer;
 }

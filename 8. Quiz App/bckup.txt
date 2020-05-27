@@ -1,39 +1,673 @@
+{   "instruction": "Solve the differential equation",
+            "question": "cos(x + y)dy = dx",
+            "options": [
+                {
+                    "value": "y - tan<sup>x + y</sup> &frasl; <sub>2</sub> = C",
+                    "score": 1
+                },
+                {
+                    "value": "y + tan<sup>x + y</sup> &frasl; <sub>2</sub> = C",
+                    "score": 0
+                },                
+                {
+                    "value": "y + tan<sup>x - y</sup> &frasl; <sub>2</sub> = x<sup>2</sup> + C",
+                    "score": 0
+                },                
+                {
+                    "value": "y - tan<sup>x + y</sup> &frasl; <sub>2</sub> = xy + C",
+                    "score": 0
+                },                
+                {
+                    "value": "y + tan<sup>x + y</sup> &frasl; <sub>2</sub> = xy + C",
+                    "score": 0
+                }
+            ]
+        }
 
-<button class="option" id="option1">(2, 0) and (10, 0)</button>
-            <button class="option" id="option2">(0, 2) and (0, 10)</button>
-            <button class="option" id="option3">(2, 10) and (0, 0)</button>
-            <button class="option" id="option4">None of these</button>
 
 
-.option{
-    display: block;
-    width: 100%;
-    border-radius: 30px;
-    margin: 10px 0;
-    background-color: transparent;
-    box-shadow: 1px 1px 3px 1px rgba(1, 1, 59, 0.295);
-    cursor: pointer;
-}
-.option label:hover{
-    background-color: rgba(1, 1, 59, 0.788);
-    color: white;
-    transform:scale(1.05);
-    border-color: rgba(1, 1, 59, 0.788);
-}
-.option input[type = "radio"]{
-    /* opacity: 0; */
-    position: fixed;
-    /* width: 0; */
-} 
-.option input[type = "radio"]:checked + label{
-    background-color: blue;
-}
-.option label{
-    user-select: none;
-    pointer-events: none;
-    display: inline-block;
-    padding: 10px;
-    width: 100%;
-    border-radius: 30px;
-    border: 1px solid black;
+
+        ,
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        }
+    
+
+
+    ,
+{
+    "level": "Intermediate",
+    "questions": [
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        }
+    ]
+
+
+},
+{
+    "level": "Advanced",
+    "questions": [
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "question": "",
+            "options": [
+                {
+                    "value": "",
+                    "score": 0
+                },
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                },                
+                {
+                    "value": "",
+                    "score": 0
+                }
+            ]
+        }
+    ]
+
+
 }

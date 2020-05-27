@@ -4,64 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Quiz App</title>
 </head>
 <body>
     <div class="front-page page">
         <h1 class="heading">
-            <span class="first-line">young maths</span>
+            <span class="first-line">young</span>
             <span class="second-line">quiz game</span>
         </h1>
         <div class="input-area">
             <input type="text" name="name" id="name" placeholder="Enter your name...">
             <input id="start-btn" type="submit" value="Start Quiz">
         </div>
-        <p class="instruction">This quiz section contains 10 maths questions, if you feel you are up to the task, enter your name and click on Start Quiz!</p>
+        <p class="instruction">This quiz section contains questions about Young, if you feel you are up to the task, enter your name and click on Start Quiz!</p>
     </div>
 
     <div class="quiz-container page" id="quiz-container">
         <div class="score-bar">
             <button type="submit" id="quit-btn" class="quit-btn">Quit quiz</button>
-            <span class="score"><span>score: </span>23</span>
+            <span class="score">
+                <span class="text">score: </span>
+                <span id="score-num"></span>
+            </span>
         </div>
         <div class="question-bar">
-            question <span class="questions">1/10</span>:
+            question <span class="questions"></span>/ <span class="question-length"></span> :
         </div>
 
         <div class="question-text-container">
-            <p class="text">Find the co-ordinate of a point on x-axis, which is at a distance of 5 units from the point (6, -3). </p>
+            <p id="instructions"></p>
+            <p class="text" id="question-text"></p>
         </div>
         <div class="options">
             <div class="option">
                 <input type="radio" name="option" id="option1" value="option1">
-                <label for="option1" class="option-value">(2, 0) and (10, 0)</label>
+                <label for="option1" class="option-value"></label>
             </div>
             <div class="option">
                 <input type="radio" name="option" id="option1" value="option1">
-                <label for="option1" class="option-value">(0, 2) and (0, 10)</label>
+                <label for="option1" class="option-value"></label>
             </div>
             <div class="option">
                 <input type="radio" name="option" id="option1" value="option1">
-                <label for="option1" class="option-value">(2, 10) and (0, 0)</label>
+                <label for="option1" class="option-value"></label>
             </div>
             <div class="option">
                 <input type="radio" name="option" id="option1" value="option1">
-                <label for="option1" class="option-value">None of these</label>
+                <label for="option1" class="option-value"></label>
             </div>
         </div>
 
-        <div class="next-question-btn-container">
-            <button class="next-question-btn" id="next-question-btn">Next question</button>
+        <div class="question-btn-container">
+            <button class="question-btn" id="submit-btn">Submit quiz</button>
+            <button class="question-btn" id="next-btn">Next question</button>
         </div>
     </div>
 
     <div class="result-page">
         <div class="result-modal">
-            <span class="modal-name"> Hey Young,</span>
-            <span class="modal-score">You scored 80%</span>
-            <span class="modal-comment">You are a genius!</span>
+            <div class="modal-name"> <span class="username">Marley</span>,</div>
+            <div class="img-container">
+                <img src="source.gif">
+            </div>
+            <div class="modal-score">You scored <span class="userscore">40%</span></div>
+            <div class="modal-comment">
+                You attempted <span class="quiz-number">4 questions</span>  out of <span class="question-length">5</span>, you got <span class="quiz-score">2</span> correct.</div>
             <button>Restart quiz</button>
         </div>
     </div>
